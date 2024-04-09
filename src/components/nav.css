@@ -10,9 +10,16 @@
 .navbar-container span {
   font-size: 1.5rem;
   font-weight: bold;
+  margin-left: 10%;
 }
 
 .navbar {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between; /* Distribute space between items */
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -21,10 +28,6 @@
 .navbar li {
   display: inline-block;
   margin-right: 20px;
-}
-
-.navbar li:last-child {
-  margin-right: 0;
 }
 
 .nav-link {

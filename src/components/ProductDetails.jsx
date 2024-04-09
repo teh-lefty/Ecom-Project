@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 const ProductDetails = ({ product, isSingle }) => {
   const navigate = useNavigate();
   const handleViewItemClick = () => {
-    navigate(`/${product.id}`);
+    if (isSingle) {
+    navigate(`/`);
+    } else {
+      navigate(`/${product.id}`);
+    }
     
   }
   return (
@@ -17,6 +21,7 @@ const ProductDetails = ({ product, isSingle }) => {
         <p className="card-price">${product.price}</p>
         <button className="card-button">Add to Cart</button>
         {!isSingle && <button onClick={handleViewItemClick} className="view-item-button">View Item</button>}
+        {isSingle && <button onClick={handleViewItemClick} className="view-item-button">Go Back</button>}
       </div>
     </div>
   )

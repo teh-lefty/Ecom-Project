@@ -11,9 +11,15 @@ const Navbar = ({token, setToken}) => {
   }
   return (
     <nav className="navbar-container">
+      <div className="header-logo"> <span className="navbar-brand navbar-logo">Capstone</span></div>
       <ul className="navbar">
-      <span>Capstone</span>
+        <ul>
         <li><Link className="nav-link" to="/">Products</Link></li>
+        <li><Link className="nav-link" to="/">About</Link></li>
+        <li><Link className="nav-link" to="/">Contact</Link></li>
+        </ul>
+        <ul>
+        <li> <button className="shopping-cart-button">Cart</button></li>
         <li>
           {token ? (
             <button className="logout-button" onClick={handleLogout}>Logout</button>
@@ -21,11 +27,10 @@ const Navbar = ({token, setToken}) => {
             <Link to="/login">Login</Link>
           )}
         </li>
-        <li>About</li>
-        <li>Contact</li>
+        
+      </ul>
       </ul>
     </nav>
   ) 
 }
-
 export default Navbar;
