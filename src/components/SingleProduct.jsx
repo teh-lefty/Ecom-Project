@@ -3,7 +3,7 @@ import { getSingleProduct } from './API';
 import { useParams } from 'react-router-dom';
 import ProductDetails from './ProductDetails';
 
-const SingleProduct = () => {
+const SingleProduct = ({ cart, setCart }) => {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
 
@@ -17,10 +17,12 @@ const SingleProduct = () => {
    if (!product) {
     return <div>Loading...</div>;
   };
-  return product &&<ProductDetails product={product} isSingle />;
+  return (
+  <ProductDetails product={product} isSingle cart={cart} setCart={setCart} />
+);
     
     
-  
+   
 };
 
 export default SingleProduct;
