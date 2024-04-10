@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { login } from "./API/index";
+import { login, getAllUsers, getUserCart } from "./API/index";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({setToken}) => {
+const Login = ({setToken, setUser, setCart}) => {
   // state handlers
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,11 @@ const Login = ({setToken}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = await login(username, password);
+    const user = await getAllUsers(username);
+    const userCart = await getUserCart(user.id);
     setToken(token);
+    setUser(user);
+    setCart(userCart);
     setPassword("");
     setUsername("");
     navigate("/")

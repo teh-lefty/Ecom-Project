@@ -19,7 +19,7 @@ const Navbar = ({token, setToken}) => {
         <li><Link className="nav-link" to="/">Contact</Link></li>
         </ul>
         <ul>
-        <li> <button className="shopping-cart-button">Cart</button></li>
+        <li> <Link className="nav-link" to="/cart">Cart</Link></li>
         <li>
           {token ? (
             <button className="logout-button" onClick={handleLogout}>Logout</button>
