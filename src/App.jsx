@@ -8,6 +8,7 @@ import Login from './components/Login'
 import { getAllProducts } from './components/API/index' 
 import SingleProduct from './components/SingleProduct'
 import Cart from './components/Cart'
+import CheckoutPage from './components/CheckoutPage'
 
 
 
@@ -59,6 +60,7 @@ function App() {
         path="/cart" 
         element={<Cart cart={cart} products={products} setCart={setCart} />}
          />
+      <Route path="/checkout" element={<CheckoutPage cart={cart} setCart={setCart} />} />
       </Routes>
     </>
   );
