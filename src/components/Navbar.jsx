@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./nav.css";
 
 
-const Navbar = ({token, setToken}) => {
+
+const Navbar = ({ token, setToken, totalItemsCount }) => {
   const navigate = useNavigate()
   const handleLogout = () => {
     setToken(null);
@@ -19,7 +20,7 @@ const Navbar = ({token, setToken}) => {
         <li><Link className="nav-link" to="/">Contact</Link></li>
         </ul>
         <ul>
-        <li> <Link className="nav-link" to="/cart">Cart</Link></li>
+        <li> <Link className="nav-link" to="/cart">Cart ({totalItemsCount})</Link></li>
         <li>
           {token ? (
             <button className="logout-button" onClick={handleLogout}>Logout</button>

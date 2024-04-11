@@ -17,7 +17,8 @@ function App() {
   const [products, setproducts] = useState([]);
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
-
+  
+  
   
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -44,7 +45,7 @@ function App() {
 
   return (
     <>
-    <Navbar token={token} setToken={setToken} />
+    <Navbar token={token} setToken={setToken} cart={cart}  />
       <Routes>
         <Route path="/" 
         element={<AllProducts products={products} cart={cart} setCart={setCart} />} 
@@ -58,7 +59,7 @@ function App() {
         /> 
         <Route 
         path="/cart" 
-        element={<Cart cart={cart} products={products} setCart={setCart} />}
+        element={<Cart cart={cart} products={products} setCart={setCart}  />}
          />
       <Route path="/checkout" element={<CheckoutPage cart={cart} setCart={setCart} />} />
       </Routes>

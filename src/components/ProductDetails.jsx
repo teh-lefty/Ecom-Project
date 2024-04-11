@@ -1,6 +1,7 @@
 import React from "react";
 import "./card.css"
 import { useNavigate } from "react-router-dom";
+import { addCartItem } from "../utils/helpers";
 
 const ProductDetails = ({ product, isSingle, cart, setCart }) => {
   console.log("cart", cart);
@@ -13,24 +14,13 @@ const ProductDetails = ({ product, isSingle, cart, setCart }) => {
     }
     };
   const handleAddToCart = () => {
-    
     const productId = product.id;
-    // if the product is already in the cart, update the quantity
-    const existingCartItemIndex = cart.findIndex(
-      (item) => item.productId === productId)
-    if (existingCartItemIndex !== -1) {
-      //make a copy of existing cart
-      const updatedCart = [...cart];
-      // upddate quantity
-      updatedCart[existingCartItemIndex].quantity += 1;
-      setCart(updatedCart);
-    } else {
-      // if the new product is not in the cart add it with quantity 1
-      const newItem = {productId, quantity: 1};
-      setCart((prevCart) => [...prevCart, newItem]);
+    setCart((prevCart) => addCartItem(prevCart, productId));
+    
+    
     }
 
-  };
+  
 
     
   return (
