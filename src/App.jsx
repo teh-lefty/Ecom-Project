@@ -41,7 +41,7 @@ function App() {
     localStorage.removeItem("cart");
   }
     
-  }, [token]);
+  }, [token, cart, user]);
 
   return (
     <>
