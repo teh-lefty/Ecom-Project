@@ -1,24 +1,16 @@
 import React from "react";
+import { addCartItem, removeCartItem } from "../utils/helpers";
 import CartItemCard from "./CartItemCard";
-import { addCartItem, removeCartItem, editCartItemQuantity } from "../utils/helpers";
 
-
-const Cart = ({ cart, products, setCart }) => { 
-  
+const Cart = ({ cart, products, setCart }) => {
+  console.log("Cart component - cart:", cart);
   // helper function
-  const getAllItemDetails = (cartItem) => 
+  const getAllItemDetails = (cartItem) =>
     products.find((product) => product.id === cartItem.productId);
 
-    const handleIncrement = (id) => {
-      setCart((prevCart) => addCartItem(prevCart, id) );
-    };
-    const handleDecrement = (id) => {
-      setCart((prevCart) => removeCartItem(prevCart, id) );
-    };
-    const handleEditQuantity = (id, newQuantity) => {
-      //TODO
-    }
-    
+  const handleIncrement = (id) => {
+    setCart((prevCart) => addCartItem(prevCart, id));
+  };
   return (
     <div>
       <h1>Shopping Cart</h1>
@@ -26,20 +18,17 @@ const Cart = ({ cart, products, setCart }) => {
       {cart.map((item) => {
         const productItem = getAllItemDetails(item);
         return (
-        <CartItemCard 
-        key={productItem?.id} 
-        cartItem={productItem} 
-        quantity={item.quantity}
-        onIncrement={handleIncrement}
-        onDecrement={handleDecrement}
-        onEdit={handleEditQuantity}
-        />
+          <CartItemCard
+            key={item.productId}
+            cartItem={productItem}
+            quantity={item.quantity}
+            onIncrement={handleIncrement}
+            // onEdit={handleEditQuantity}
+          />
         );
-        
-})}
+      })}
     </div>
   );
-  
 };
 
 export default Cart;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { getSingleProduct } from './API';
-import { useParams } from 'react-router-dom';
-import ProductDetails from './ProductDetails';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getSingleProduct } from "./API";
+import ProductDetails from "./ProductDetails";
 
 const SingleProduct = ({ cart, setCart }) => {
   const [product, setProduct] = useState(null);
@@ -13,16 +13,13 @@ const SingleProduct = ({ cart, setCart }) => {
       setProduct(product);
     };
     fetchSingleProduct();
-   }, [productId]);
-   if (!product) {
+  }, [productId]);
+  if (!product) {
     return <div>Loading...</div>;
-  };
+  }
   return (
-  <ProductDetails product={product} isSingle cart={cart} setCart={setCart} />
-);
-    
-    
-   
+    <ProductDetails product={product} isSingle cart={cart} setCart={setCart} />
+  );
 };
 
 export default SingleProduct;

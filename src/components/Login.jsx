@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { login, getAllUsers, getUserCart } from "./API/index";
 import { useNavigate } from "react-router-dom";
+import { getAllUsers, getUserCart, login } from "./API/index";
 
-const Login = ({setToken, setUser, setCart}) => {
+const Login = ({ setToken, setUser, setCart }) => {
   // state handlers
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,9 +26,8 @@ const Login = ({setToken, setUser, setCart}) => {
     setCart(userCart);
     setPassword("");
     setUsername("");
-    navigate("/")
-
-  }; 
+    navigate("/");
+  };
 
   return (
     <div className="login-container">

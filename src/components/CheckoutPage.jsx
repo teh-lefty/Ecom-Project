@@ -13,7 +13,12 @@ const Checkout = () => {
         <input type="text" id="address" placeholder="Your address" required />
 
         <label htmlFor="card-details">Card Details:</label>
-        <input type="text" id="card-details" placeholder="Credit card number" required />
+        <input
+          type="text"
+          id="card-details"
+          placeholder="Credit card number"
+          required
+        />
 
         <label htmlFor="expiry">Expiry:</label>
         <input type="text" id="expiry" placeholder="MM/YY" required />
@@ -24,6 +29,7 @@ const Checkout = () => {
         <button type="submit">Place Order</button>
       </form>
     </div>
-  )
+  );
 };
+
 export default Checkout;

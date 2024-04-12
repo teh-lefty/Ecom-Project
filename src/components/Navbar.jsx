@@ -4,7 +4,7 @@ import "./nav.css";
 
 
 
-const Navbar = ({ token, setToken, totalItemsCount }) => {
+const Navbar = ({ token, setToken, }) => {
   const navigate = useNavigate()
   const handleLogout = () => {
     setToken(null);
@@ -20,7 +20,7 @@ const Navbar = ({ token, setToken, totalItemsCount }) => {
         <li><Link className="nav-link" to="/">Contact</Link></li>
         </ul>
         <ul>
-        <li> <Link className="nav-link" to="/cart">Cart ({totalItemsCount})</Link></li>
+        <li> <Link className="nav-link" to="/cart">Cart )</Link></li>
         <li>
           {token ? (
             <button className="logout-button" onClick={handleLogout}>Logout</button>
